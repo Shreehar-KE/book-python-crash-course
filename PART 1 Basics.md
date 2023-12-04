@@ -221,3 +221,55 @@
 * provides the ability to modify the list while looping
 
 ---
+
+# Chapter 8: Functions
+
+* Defining a Function
+* Passing Arguments
+* Return Values
+* Passing a List
+* Passing an Arbitary Number of Arguments
+* Storing Your Functions in Modules
+* Styling Functions
+
+#### Defining a Function
+* Function definition
+* docstring `"""descibes what the function does"""`
+* parameter - in function definition
+* argument - in function call
+
+#### Passing Arguments
+* Positional Arguments
+* Keyword Arguments
+* Default values - for parameters
+  * place it after other parameters(wihtout default values)
+
+#### Return Values
+* making optional arguments
+* `None` value
+
+#### Passing a List
+* Reference nature of Lists
+* Shallow copying a list to prevent modification 
+
+#### Passing an Arbitary Number of Arguments
+* `*` before parameter to create a tuple
+* place this parameter at last in the function definition
+* `**` before parameter to create a dicitonary
+
+#### Storing Your Functions in Modules
+* `import` statement
+* `module_name.fuction_name()`
+* `from module_name import function_0, function-1`
+* `as` keyword - to create alias
+* `from module_name import *` to import every function in that modue
+  * can each function without dot(.) notation
+
+#### Styling Functions
+* Desctiptive function names
+* Lowercase letter & underscores
+* Docstring comment
+* no spaces around equal sign when specifying default value for a parameter.
+  * same convention for keyword arguments
+* when >79 characters in function definition, after `(` newline and indent the parameters with two tab spaces and place below  
+* two blank lines between two functions
