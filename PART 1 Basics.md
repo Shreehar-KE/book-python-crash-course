@@ -74,7 +74,7 @@
   * return the last item and removes it from the list
 * `some_item = sample_list.pop(pos)` method
   * return the item at pos and removes it from the list
-* `sample_list.remove(value)`
+* `sample_list.remove(value)` 
   * removes the item by its value
   * first appearance only
 
@@ -82,12 +82,12 @@
 * `list.sort()` method
   * changes the order permanently
 * `list.sort(reverse=True)` method
-* `sorted(list)` method
+* `sorted(list)` function
   * doesn't modify the list
   * also accepts `reverse=True` argument
 * `list.reverse()` method
   * reverses the original order, permanently modifies the list
-* `len(list)` method
+* `len(list)` function
   * returns the length of the list, i.e no. of items
 
 ---
@@ -115,9 +115,9 @@
   * `range(5)` means 0 to 5
 * `list()` function
   * `list(range(5))` : [0,1,2,3,4]
-* `min(num_list)`
-* `max(num_list)`
-* `sum(num_list)`
+* `min(num_list)` function
+* `max(num_list)` function
+* `sum(num_list)` function
 * List comprehension
   * ex: `squares = [value**2 for value in range(1,11)]`
 
@@ -209,7 +209,7 @@
 #### How the input() Function works
 * prompt argument 
   * can be a string variable also
-* int() method
+* int() function
 * % operator
 
 #### Introducing while Loops
@@ -260,7 +260,7 @@
 #### Storing Your Functions in Modules
 * `import` statement
 * `module_name.fuction_name()`
-* `from module_name import function_0, function-1`
+* `from module_name import function_0, function_1`
 * `as` keyword - to create alias
 * `from module_name import *` to import every function in that modue
   * can each function without dot(.) notation
@@ -273,3 +273,57 @@
   * same convention for keyword arguments
 * when >79 characters in function definition, after `(` newline and indent the parameters with two tab spaces and place below  
 * two blank lines between two functions
+
+---
+
+# Chapter 9: Classes
+
+* Creating and Using a Class
+* Working with Classes and Instances
+* Inheritance
+* Importing Classes
+* The Python Standard Library
+* Styling Classes
+
+#### Creating and Using a Class
+* * A function that’s part of a class is a method.
+* `__init__()` method - to initialize attributes
+* `self` parameter 
+  * required in the method definition
+  * must come first before other parameters
+  * similar to `this` keyword in `Java`
+* attributes - variables associated with instances
+* Class ~ set of instructions for how to make an instance
+* Object : instance of a class
+
+#### Working with Classes and Instances
+* modifying attributes directly, through a method(setter)
+
+#### Inheritance 
+* Parent Class and Child Class
+* `Class Child(Parent)` 
+* `super()` function
+* Override Method
+  * declare methods with same name
+* composition
+  * breaking of larger class into smaller classes
+
+#### Importing Classes
+* module level docstring
+* storing multiple classes in a module
+* breaking down a module
+
+#### The Python Standard Library
+* `random` module
+  * `randint()` function
+  * `choice()` function
+
+#### Styling Classes
+* CamelCase naming
+* Docstrings
+  * after class definition
+  * on top of each module
+* single blank line b/w methods in a class
+* imports from std lib comes before imports from a user-defined modules separated by a blank line
+
+---
