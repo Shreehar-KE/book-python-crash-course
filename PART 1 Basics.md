@@ -327,3 +327,45 @@
 * imports from std lib comes before imports from a user-defined modules separated by a blank line
 
 ---
+
+# Chapter 10: Files and Exceptions
+
+* Reading from a File
+* Writing to a File
+* Exceptions
+* Storing Data
+
+#### Reading from a File
+* `pathlib` module, `Path` class
+* library - module with specific functionality
+* `path.read_text()` method
+* method chaining
+* Relative & Absolute File paths
+* `splitlines()` method
+* + operator with strings : concatenation
+* `float()` function
+
+#### Writing to a File
+* `path.write_text()` method
+  * only write strings
+  * creates files if doesn't exists
+  * overwrites previous content
+  * closes the file properly after writing
+
+#### Exceptions
+* Exceptions : errors that arise during a program's execution
+  * exception object
+* try-except block
+* else block
+* encoding argument
+* `pass` statement
+
+#### Storing Data
+* JSON format
+* `json` module
+* `json.dumps()` and `json.loads()`
+* `exists()` method
+* refactoring
+
+---
+

@@ -1,0 +1,4 @@
+In python, you can easily find out an erro using the traceback
+In python, you can format a string using f-strings
+In python, constants are not built-in, instead you can name a variable in upper case letters to represent a constant
+In python, you can sort a list using sort() method or sorted() function
