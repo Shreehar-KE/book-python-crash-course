@@ -186,7 +186,7 @@
 * To remove key-value pairs
   * `del sample_dict[key]`
 * `sample_dict.get(key)` method
-  * returns 'None' or the default value passed as a parameter
+  * returns 'None' or the default value passed as a parameter if the key doesn't exists.
 
 #### Looping through a Dictionary
 * `for key,value in dict_1.items():`
@@ -369,3 +369,29 @@
 
 ---
 
+# Chapter 11: Testing Your Code
+
+* Installing pytest with pip
+* Testing a Function
+* Testing a Class
+
+#### Installing pytest with pip
+* To update any third-party package
+  * `python3 -m pip install --upgrade package_name`
+* To install any third-party package
+  * `python3 -m pip install --user package_name`
+
+#### Testing a Function
+* Unit test
+* Test case
+* Naming a test file: `test_`
+* Assertion
+* dot indicator 
+
+#### Testing a Class
+* commonly used assertion station
+* fixture
+  * `@pytest.fixture`
+* decorator
+
+---
