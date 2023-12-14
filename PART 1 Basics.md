@@ -242,7 +242,7 @@
 * Positional Arguments
 * Keyword Arguments
 * Default values - for parameters
-  * place it after other parameters(wihtout default values)
+  * place it after other parameters(without default values)
 
 #### Return Values
 * making optional arguments
@@ -286,7 +286,7 @@
 * Styling Classes
 
 #### Creating and Using a Class
-* * A function that’s part of a class is a method.
+* A function that’s part of a class is a method.
 * `__init__()` method - to initialize attributes
 * `self` parameter 
   * required in the method definition
@@ -389,7 +389,7 @@
 * dot indicator 
 
 #### Testing a Class
-* commonly used assertion station
+* commonly used assertion statements
 * fixture
   * `@pytest.fixture`
 * decorator
