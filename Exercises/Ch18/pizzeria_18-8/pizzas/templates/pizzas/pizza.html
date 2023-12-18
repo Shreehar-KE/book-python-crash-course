@@ -1,0 +1,12 @@
+{% extends 'pizzas/base.html' %}
+
+{% block content %}
+    <p>{{ pizza.name }}</p>
+    <p>Toppings: </p>
+    <ul>
+        {% for topping in toppings %}
+            <li>{{ topping.name|linebreaks }}</li>
+        {% empty %}
+        {% endfor %}
+    </ul>
+{% endblock content %}
