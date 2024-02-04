@@ -18,7 +18,7 @@ def get_new_favorite_number(path):
         try:
             number = int(input('Enter your favorite number: '))
         except ValueError:
-            print('\nEnter numberical values only...!\n')
+            print('\nEnter numerical values only...!\n')
         else:
             contents = json.dumps(number)
             path.write_text(contents)

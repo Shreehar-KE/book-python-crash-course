@@ -9,7 +9,9 @@
 
 #### What Really Happens When You Run hello_world.py
 
+* `.py` extension
 * Python Interpreter
+* `print()` function
 * Syntax Highlighting
 
 #### Variables
@@ -195,7 +197,7 @@
   * same as `for key in dict_1:`
   * `if key in dict_1.keys():`
 * `for value in dict_1.values():`
-* `set(dict_1.values)` to get unique values
+* `set(dict_1.values())` to get unique values
   * set : `{value1, value2}`
 
 ---
@@ -263,11 +265,11 @@
 * `from module_name import function_0, function_1`
 * `as` keyword - to create alias
 * `from module_name import *` to import every function in that modue
-  * can each function without dot(.) notation
+  * can use each function without dot(.) notation
 
 #### Styling Functions
 * Desctiptive function names
-* Lowercase letter & underscores
+* Lowercase letters & underscores
 * Docstring comment
 * no spaces around equal sign when specifying default value for a parameter.
   * same convention for keyword arguments
@@ -292,7 +294,7 @@
   * required in the method definition
   * must come first before other parameters
   * similar to `this` keyword in `Java`
-* attributes - variables associated with instances
+* attributes - variables associated with classes/instances
 * Class ~ set of instructions for how to make an instance
 * Object : instance of a class
 
@@ -342,12 +344,13 @@
 * method chaining
 * Relative & Absolute File paths
 * `splitlines()` method
-* + operator with strings : concatenation
+* `+` operator with strings : concatenation
 * `float()` function
 
 #### Writing to a File
 * `path.write_text()` method
   * only write strings
+  * `str()` function
   * creates files if doesn't exists
   * overwrites previous content
   * closes the file properly after writing
@@ -355,8 +358,8 @@
 #### Exceptions
 * Exceptions : errors that arise during a program's execution
   * exception object
-* try-except block
-* else block
+* `try-except` block
+* `else` block
 * encoding argument
 * `pass` statement
 
@@ -364,7 +367,7 @@
 * JSON format
 * `json` module
 * `json.dumps()` and `json.loads()`
-* `exists()` method
+* `exists()` method - `Path` Object
 * refactoring
 
 ---
@@ -384,12 +387,14 @@
 #### Testing a Function
 * Unit test
 * Test case
-* Naming a test file: `test_`
-* Assertion
+* Naming a test file: start with `test_`
+* Naming a test function: `test_descriptive_function_name`
+* Assertion - `assert`
 * dot indicator 
 
 #### Testing a Class
 * commonly used assertion statements
+  *  uses boolean expressions
 * fixture
   * `@pytest.fixture`
 * decorator

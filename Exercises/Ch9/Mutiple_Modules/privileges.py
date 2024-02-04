@@ -1,12 +1,12 @@
-"""A class that can be used to represent priveleges"""
+"""A class that can be used to represent privileges"""
 
 
-class Priveleges:
-    """Object oriented representation of list of priveleges"""
+class Privileges:
+    """Object oriented representation of list of privileges"""
 
-    def __init__(self, priveleges):
-        self.priveleges = priveleges
+    def __init__(self, privileges):
+        self.privileges = privileges
 
-    def show_priveleges(self):
-        for privelege in self.priveleges:
-            print(f'  - {privelege}')
+    def show_privileges(self):
+        for privilege in self.privileges:
+            print(f'  - {privilege}')

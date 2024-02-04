@@ -197,11 +197,85 @@
     {% empty %}
   --snip--
   ```
+
 ---
 
 ## Chapter 19: User Accounts
 
+* Allowing Users to Enter Data
+* Setting Up User Accounts
+* Allowing Users to Own Their Data
+
+#### Allowing Users to Enter Data
+* _forms.py_ module
+* ModelForm
+    ```python
+    from django import forms
+    from .models import Topic
+    
+    class TopicForm(forms.ModelForm):
+      class Meta:
+        model = Topic
+        fields = ['text']
+        labels = {'text': ''}
+    ```
+* `redirect()` function - takes `view` function as argument
+* _views.py_
+  ```python
+    from django.shortcuts import render, redirect
+    from .models import Topic
+    from .forms import TopicForm
+    #--snip--
+    def new_topic(request):
+        """Add a new topic."""
+        if request.method != 'POST':
+            # No data submitted; create a blank form.
+            form = TopicForm()
+        else:
+            # POST data submitted; process data.
+            form = TopicForm(data=request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('learning_logs:topics')
+        # Display a blank or invalid form.
+        context = {'form': form}
+        return render(request, 'learning_logs/new_topic.html', context)
+  ```
+* GET & POST
+* *new_topic.html*
+  ```html
+    {% extends "learning_logs/base.html" %}
+    {% block content %}
+      <p>Add a new topic:</p>
+
+      <form action="{% url 'learning_logs:new_topic' %}" method='post'>
+        {% csrf_token %}
+        {{ form.as_div }}
+        <button name="submit">Add topic</button>
+      </form>
+    {% endblock content %}
+  ```
+  * csrf - cross-site request forgery
+* widgets
+* _forms.py_
+  ```python
+    from django import forms
+    from .models import Topic, Entry
+    class TopicForm(forms.ModelForm):
+    #--snip--
+    class EntryForm(forms.ModelForm):
+        class Meta:
+            model = Entry
+            fields = ['text']
+            labels = {'text': ''}
+            widgets = {'text': forms.Textarea(attrs={'cols': 80})}
+  ```
 * 
+
+
+
+
+
 ## Chapter 20: Styling and Deploying an App
 ---
 ---

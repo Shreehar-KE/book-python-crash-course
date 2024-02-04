@@ -5,4 +5,4 @@ def simple_function():
 
 def another_function():
     """prints an another message"""
-    print('\nThis is an another message.')
+    print('\nThis is another message.')

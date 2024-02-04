@@ -4,7 +4,7 @@ while True:
     if age == 0:
         break
     elif age < 3:
-        print('Tickets are free for you..!')
+        print('Ticket is free for you..!')
     elif age < 12:
         print('A Ticket is $10 for you')
     else:

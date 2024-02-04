@@ -1,6 +1,5 @@
 # Use a conditional test in the while statement to stop the loop.
 topping = ''
-flag = True
 while topping != 'quit':
     topping = input("What topping do you want? Enter 'quit' to stop\n---> ")
     if topping != 'quit':

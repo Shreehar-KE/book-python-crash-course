@@ -1,4 +1,4 @@
-"""A set of classes used to represent users, admins and priveleges"""
+"""A set of classes used to represent users, admins and privileges"""
 
 
 class User:
@@ -33,14 +33,14 @@ class User:
         self.login_attempts = 0
 
 
-class Priveleges:
+class Privileges:
 
-    def __init__(self, priveleges):
-        self.priveleges = priveleges
+    def __init__(self, privileges):
+        self.privileges = privileges
 
-    def show_priveleges(self):
-        for privelege in self.priveleges:
-            print(f'  - {privelege}')
+    def show_privileges(self):
+        for privilege in self.privileges:
+            print(f'  - {privilege}')
 
 
 class Admin(User):
@@ -49,10 +49,10 @@ class Admin(User):
     def __init__(self, first_name, last_name, age, occupation):
         """initialized the attributes of Admin class"""
         super().__init__(first_name, last_name, age, occupation)
-        self.privileges = Priveleges(
+        self.privileges = Privileges(
             ['can add post', 'can delete post', 'can ban user', 'can delete user'])
 
     def show_privileges(self):
         """displys the list of privileges that the Admin have"""
         print("The Admin's privileges are: ")
-        self.privileges.show_priveleges()
+        self.privileges.show_privileges()

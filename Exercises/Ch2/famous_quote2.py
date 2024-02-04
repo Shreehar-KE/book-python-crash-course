@@ -1,4 +1,4 @@
 quote = "We all make mistakes but one has to move on."
-author = "Jeffrey Archer"
-message = f'{author} once said,"{quote}"'
+famous_person = "Jeffrey Archer"
+message = f'{famous_person} once said,"{quote}"'
 print(message)
