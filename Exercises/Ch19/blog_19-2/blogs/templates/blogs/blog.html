@@ -2,19 +2,19 @@
 
 {% block content %}
 <p>{{ blog.name }}</p>
+<p><a href="{% url 'blogs:new_post' blog.id%}">Create a new post</a></p>
+<p>Posts: </p>
 
 <ul>
-    {% for post in posts %}
-    <li>
-        <p><b>{{ post.title }}</b></p>
-        <p><i>by {{ post.author }} - published on {{ post.date_added|date:'M d, Y H:i' }}</i></p>
-        <p>{{ post.text|linebreaks }}</p>
-        <p><a href="{% url 'blogs:edit_post' post.id%}">Edit this post</a></p>
-    </li>
+  {% for post in posts %}
+  <li>
+    <p>{{ post.title }} - <small><a href="{% url 'blogs:edit_post' post.id%}">edit post</a></small></p>
+    <i>posted on {{ post.date_added|date:'M d, Y H:i' }}</i>
+    <p>{{ post.content|linebreaks }}</p>
     <br>
-    {% empty %}
-    <li>No posts have been added to this blog yet.</li>
-    {% endfor %}
+  </li>
+  {% empty %}
+  <li>No posts have been added to this blog yet.</li>
+  {% endfor %}
 </ul>
-<a href="{% url 'blogs:new_post' blog.id %}">Add a new Post</a>
 {% endblock content %}

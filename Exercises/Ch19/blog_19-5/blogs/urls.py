@@ -3,18 +3,17 @@ from django.urls import path
 from . import views
 
 app_name = 'blogs'
-
 urlpatterns = [
     # Home page
     path('', views.index, name='index'),
-    # Page to list all blogs
+    # Blogs Page
     path('blogs/', views.blogs, name='blogs'),
-    # Page to list all posts in a blog
+    # Posts Page
     path('blog/<int:blog_id>', views.blog, name='blog'),
-    # Page to add a New Blog
+    # New Blog page
     path('new_blog/', views.new_blog, name='new_blog'),
-    # Page to add a New Blog Post
+    # New Post Page
     path('new_post/<int:blog_id>', views.new_post, name='new_post'),
-    # Page to edit a Blog Post
-    path('edit_post/<int:post_id>', views.edit_post, name='edit_post'),
+    # Edit Post Page
+    path('edit_post/<int:post_id>', views.edit_post, name='edit_post')
 ]

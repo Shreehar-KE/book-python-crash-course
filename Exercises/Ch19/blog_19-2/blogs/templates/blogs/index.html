@@ -1,5 +1,23 @@
 {% extends 'blogs/base.html' %}
 
 {% block content %}
-    <p><i>The first step in blogging is not writing them but reading them.</i></p>
+<p>Start your blogging journey now...!</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+  aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+<hr>
+<p>Recently added posts:</p>
+<ul>
+  {% for post in recent_posts %}
+  <li>
+    <p>
+      {{ post.title}} - {{ post.date_added|date:'M d,Y H:i' }} -
+      <a href="{% url 'blogs:blog' post.blog.id %}">view blog</a>
+    </p>
+    <p>{{ post.content|truncatewords:50|linebreaks }}</p>
+  </li>
+  {% empty %}
+  <li>No Posts have been added yet.</li>
+  {% endfor %}
+</ul>
 {% endblock content %}
