@@ -1,0 +1,35 @@
+{% extends 'blogs/base.html' %}
+{% block page_header %}
+<div class="p-3 mb-4 bg-light border rounded-3">
+  <div class="container-fluid py-4">
+    <h1 class="display-6">Start your blogging journey now...!</h1>
+
+    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+      et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+      pariatur.</p>
+
+    <a class="btn btn-primary btn-lg mt-1" href="{% url 'accounts:register' %}">Register &raquo;</a>
+  </div>
+</div>
+{% endblock page_header %}
+
+{% block content %}
+
+<p>Recently added posts:</p>
+
+{% for post in recent_posts %}
+<div class="card mb-3">
+  <!-- Card header with timestamp and edit link -->
+  <h4 class="card-header pb-0 pt-3">
+    {{ post.title}} -
+    <small>{{ post.date_added|date:'M d,Y H:i' }} - <a href="{% url 'blogs:blog' post.blog.id %}">view blog</a></small>
+  </h4>
+  <!-- Card body with entry text -->
+  <div class="card-body pb-1">{{ post.content|truncatewords:50|linebreaks }}</div>
+</div>
+{% empty %}
+<p>No Posts have been added yet.</p>
+{% endfor %}
+
+{% endblock content %}

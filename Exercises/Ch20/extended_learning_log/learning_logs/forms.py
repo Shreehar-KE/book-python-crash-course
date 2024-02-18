@@ -5,8 +5,8 @@ from .models import Topic, Entry
 class TopicForm(forms.ModelForm):
     class Meta:
         model = Topic
-        fields = ['text']
-        labels = {'text': ''}
+        fields = ['text', 'visibility']
+        labels = {'text': '', 'visibility': 'make public?'}
 
 
 class EntryForm(forms.ModelForm):
