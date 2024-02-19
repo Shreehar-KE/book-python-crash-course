@@ -6,7 +6,10 @@
 
     <p class="lead">Make your own Learning Log, and keep a list of the topics you're learning about. Whenever you learn
       something new about a topic, make an entry summarizing what you've learned.</p>
+    {% if request.user.is_authenticated %}
+    {% else %}
     <a class="btn btn-primary btn-lg mt-1" href="{% url 'accounts:register' %}">Register &raquo;</a>
+    {% endif %}
   </div>
 </div>
 {% endblock page_header %}
