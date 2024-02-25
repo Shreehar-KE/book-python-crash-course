@@ -2,6 +2,11 @@
 
 {% block page_header %}
 <h1>{{ topic.text }}</h1>
+{% if not topic.visibility %}
+<p>This topic is private, want to <a href="{% url 'learning_logs:edit_topic' topic.id%}">edit</a>?</p>
+{% else %}
+<a href="{% url 'learning_logs:edit_topic' topic.id%}">Edit Topic</a>
+{% endif %}
 {% endblock page_header %}
 
 {% block content %}

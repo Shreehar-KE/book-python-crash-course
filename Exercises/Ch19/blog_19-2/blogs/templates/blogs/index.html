@@ -2,22 +2,23 @@
 
 {% block content %}
 <p>Start your blogging journey now...!</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-  aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+<p>Welcome to our blog hosting site, where creativity meets opportunity!
+  Embark on your blogging journey with us and unleash your voice to the world. Whether you're a seasoned writer or
+  just dipping your toes into the vast ocean of blogging, our platform offers the perfect launchpad for your ideas,
+  thoughts, and stories.</p>
 <hr>
+{% if recent_posts %}
 <p>Recently added posts:</p>
 <ul>
   {% for post in recent_posts %}
   <li>
     <p>
-      {{ post.title}} - {{ post.date_added|date:'M d,Y H:i' }} -
-      <a href="{% url 'blogs:blog' post.blog.id %}">view blog</a>
+      <a href="{% url 'blogs:blog' post.blog.id %}">{{post.blog.name}}</a> - {{ post.title}} |
+      <small><i>{{ post.date_added|date:'M d, Y - H:i' }}</i></small>
     </p>
     <p>{{ post.content|truncatewords:50|linebreaks }}</p>
   </li>
-  {% empty %}
-  <li>No Posts have been added yet.</li>
   {% endfor %}
 </ul>
+{% endif %}
 {% endblock content %}

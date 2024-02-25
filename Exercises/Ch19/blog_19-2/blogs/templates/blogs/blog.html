@@ -8,9 +8,10 @@
 <ul>
   {% for post in posts %}
   <li>
-    <p>{{ post.title }} - <small><a href="{% url 'blogs:edit_post' post.id%}">edit post</a></small></p>
-    <i>posted on {{ post.date_added|date:'M d, Y H:i' }}</i>
+    <h3>{{ post.title }} - <small><a href="{% url 'blogs:edit_post' post.id%}">edit post</a></small></h3>
     <p>{{ post.content|linebreaks }}</p>
+    <p><i>posted on {{ post.date_added|date:'M d, Y - H:i' }}</i></p>
+    <hr>
     <br>
   </li>
   {% empty %}

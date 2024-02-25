@@ -8,7 +8,13 @@ from django.http import Http404
 def index(request):
     """Home page for blognation"""
     posts = Post.objects.order_by('-date_added')
-    context = {'recent_posts': [posts[0], posts[1]]}
+    count = len(posts)
+    if count == 0:
+        context = {'recent_posts': []}
+    elif count == 1:
+        context = {'recent_posts': [posts[0]]}
+    else:
+        context = {'recent_posts': [posts[0], posts[1]]}
     return render(request, 'blogs/index.html', context)
 
 

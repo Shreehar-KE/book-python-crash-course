@@ -4,12 +4,14 @@
   <div class="container-fluid py-4">
     <h1 class="display-6">Start your blogging journey now...!</h1>
 
-    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-      et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-      pariatur.</p>
+    <p class="lead" style="text-align: justify;">Welcome to our blog hosting site, where creativity meets opportunity!
+      Embark on your blogging
+      journey with us and unleash your voice to the world. Whether you're a seasoned writer or just dipping your toes
+      into the vast ocean of blogging, our platform offers the perfect launchpad for your ideas, thoughts, and stories.
+    </p>
 
     {% if request.user.is_authenticated %}
+    <a class="btn btn-primary btn-lg mt-1" href="{% url 'blogs:new_blog' %}">Create a new Blog</a>
     {% else %}
     <a class="btn btn-primary btn-lg mt-1" href="{% url 'accounts:register' %}">Register &raquo;</a>
     {% endif %}
@@ -19,20 +21,23 @@
 
 {% block content %}
 
-<p>Recently added posts:</p>
+{% if recent_posts %}
+<div class="py-1 mb-2 ">
+  <h4>Recently added posts:</h4>
+</div>
+
 
 {% for post in recent_posts %}
 <div class="card mb-3">
   <!-- Card header with timestamp and edit link -->
-  <h4 class="card-header pb-0 pt-3">
-    {{ post.title}} -
-    <small>{{ post.date_added|date:'M d,Y H:i' }} - <a href="{% url 'blogs:blog' post.blog.id %}">view blog</a></small>
-  </h4>
+  <h6 class="card-header pb-2 pt-3">
+    <a href="{% url 'blogs:blog' post.blog.id %}">{{post.blog.name}}</a> - {{ post.title}} |
+    <small><i>{{ post.date_added|date:'M d, Y - H:i' }}</i></small>
+  </h6>
   <!-- Card body with entry text -->
-  <div class="card-body pb-1">{{ post.content|truncatewords:50|linebreaks }}</div>
+  <div class="card-body pb-1" style="text-align: justify;">{{ post.content|truncatewords:50|linebreaks }}</div>
 </div>
-{% empty %}
-<p>No Posts have been added yet.</p>
 {% endfor %}
+{% endif %}
 
 {% endblock content %}

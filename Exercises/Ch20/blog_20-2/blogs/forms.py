@@ -7,6 +7,7 @@ class BlogForm(forms.ModelForm):
         model = Blog
         fields = ['name']
         labels = {'name': 'Enter the blog\'s name'}
+        widgets = {'name':forms.TextInput(attrs={'placeholder':''})}
 
 
 class PostForm(forms.ModelForm):
@@ -14,5 +15,7 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ['title', 'content']
         labels = {'title': 'Enter the post\'s title', 'content': ''}
-        widgets = {'content': forms.Textarea(
-            attrs={'cols': 80, 'placeholder': 'Type your post here...'})}
+        widgets = {
+            'content': forms.Textarea(attrs={'cols': 80, 'placeholder': 'Type your post here...'}),
+            'title':forms.TextInput(attrs={'placeholder':''})
+            }

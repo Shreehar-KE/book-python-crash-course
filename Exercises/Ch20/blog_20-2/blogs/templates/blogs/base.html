@@ -34,7 +34,7 @@
         <ul class="navbar-nav ms-auto mb-2 mb-md-0">
           {% if user.is_authenticated %}
           <li class="nav-item">
-            <span class="navbar-text me-2">Hello, {{ user.username }}.
+            <span class="navbar-text me-2">Hello, {{ user.username.title }}.
             </span>
           </li>
           {% else %}

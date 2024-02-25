@@ -15,9 +15,10 @@
     <p>{{ post.title }} - <small><a href="{% url 'blogs:edit_post' post.id%}">edit post</a></small></p>
   </h4>
   <!-- Card body with entry text -->
-  <div class="card-body">
+  <div class="card-body pb-1" style="text-align: justify;">
     {{ post.content|linebreaks }}
-    <p>by {{post.blog.owner}}, <small><i>posted on {{ post.date_added|date:'M d, Y H:i' }}</i></small> </p>
+    <hr>
+    <p><b>by {{post.blog.owner}}</b>, <small><i>posted on {{ post.date_added|date:'M d, Y - H:i' }}</i></small></p>
   </div>
 </div>
 {% empty %}

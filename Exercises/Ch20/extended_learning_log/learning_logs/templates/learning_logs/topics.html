@@ -5,9 +5,10 @@
 {% endblock page_header %}
 
 {% block content %}
-
+{% if request.user.is_authenticated %}
+<h5 class="card-header">Your Topics:</h5>
 <ul class="list-group border-bottom pb-2 mb-4">
-  {% for topic in topics %}
+  {% for topic in owner_topics %}
   <li class="list-group-item border-0">
     <a href="{% url 'learning_logs:topic' topic.id %}">
       {{ topic.text }}</a>
@@ -16,6 +17,31 @@
   <li class="list-group-item border-0">No topics have been added yet.</li>
   {% endfor %}
 </ul>
+{% endif %}
+<h5 class="card-header">Public Topics:</h5>
+<ul class="list-group border-bottom pb-2 mb-4">
+  {% for topic in public_topics %}
+  <li class="list-group-item border-0">
+    <a href="{% url 'learning_logs:topic' topic.id %}">
+      {{ topic.text }}</a>
+  </li>
+  {% empty %}
+  <li class="list-group-item border-0">No topics have been added yet.</li>
+  {% endfor %}
+</ul>
+{% if private_topics %}
+<h5 class="card-header">Private Topics:</h5>
+<ul class="list-group border-bottom pb-2 mb-4">
+  {% for topic in private_topics %}
+  <li class="list-group-item border-0">
+    <a href="{% url 'learning_logs:topic' topic.id %}">
+      {{ topic.text }}</a>
+  </li>
+  {% empty %}
+  <li class="list-group-item border-0">No topics have been added yet.</li>
+  {% endfor %}
+</ul>
+{% endif %}
 
 <a href="{% url 'learning_logs:new_topic' %}">Add a new topic</a>
 
