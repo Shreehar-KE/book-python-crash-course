@@ -1,0 +1,43 @@
+{% extends 'blogs/base.html' %}
+{% block page_header %}
+<div class="p-3 mb-4 bg-light border rounded-3">
+  <div class="container-fluid py-4">
+    <h1 class="display-6">Start your blogging journey now...!</h1>
+
+    <p class="lead" style="text-align: justify;">Welcome to our blog hosting site, where creativity meets opportunity!
+      Embark on your blogging
+      journey with us and unleash your voice to the world. Whether you're a seasoned writer or just dipping your toes
+      into the vast ocean of blogging, our platform offers the perfect launchpad for your ideas, thoughts, and stories.
+    </p>
+
+    {% if request.user.is_authenticated %}
+    <a class="btn btn-primary btn-lg mt-1" href="{% url 'blogs:new_blog' %}">Create a new Blog</a>
+    {% else %}
+    <a class="btn btn-primary btn-lg mt-1" href="{% url 'accounts:register' %}">Register &raquo;</a>
+    {% endif %}
+  </div>
+</div>
+{% endblock page_header %}
+
+{% block content %}
+
+{% if recent_posts %}
+<div class="py-1 mb-2 ">
+  <h4>Recently added posts:</h4>
+</div>
+
+
+{% for post in recent_posts %}
+<div class="card mb-3">
+  <!-- Card header with timestamp and edit link -->
+  <h6 class="card-header pb-2 pt-3">
+    <a href="{% url 'blogs:blog' post.blog.id %}">{{post.blog.name}}</a> - {{ post.title}} |
+    <small><i>{{ post.date_added|date:'M d, Y - H:i' }}</i></small>
+  </h6>
+  <!-- Card body with entry text -->
+  <div class="card-body pb-1" style="text-align: justify;">{{ post.content|truncatewords:50|linebreaks }}</div>
+</div>
+{% endfor %}
+{% endif %}
+
+{% endblock content %}

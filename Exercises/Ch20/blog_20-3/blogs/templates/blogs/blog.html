@@ -1,0 +1,27 @@
+{% extends 'blogs/base.html' %}
+
+{% block page_header %}
+<h1>{{ blog.name }}</h1>
+{% endblock page_header %}
+
+{% block content %}
+<p>
+  <a href="{% url 'blogs:new_post' blog.id%}">Create a new post</a>
+</p>
+{% for post in posts %}
+<div class="card mb-3">
+  <!-- Card header with timestamp and edit link -->
+  <h4 class="card-header pb-0 pt-3">
+    <p>{{ post.title }} - <small><a href="{% url 'blogs:edit_post' post.id%}">edit post</a></small></p>
+  </h4>
+  <!-- Card body with entry text -->
+  <div class="card-body pb-1" style="text-align: justify;">
+    {{ post.content|linebreaks }}
+    <hr>
+    <p><b>by {{post.blog.owner}}</b>, <small><i>posted on {{ post.date_added|date:'M d, Y - H:i' }}</i></small></p>
+  </div>
+</div>
+{% empty %}
+<p>No posts have been added to this blog yet.</p>
+{% endfor %}
+{% endblock content %}
