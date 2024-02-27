@@ -20,5 +20,9 @@ def register(request):
             login(request, new_user)
             return redirect('learning_logs:index')
 
+    form.fields['username'].help_text = None
+    form.fields['password1'].help_text = None
+    form.fields['password2'].help_text = None
+
     context = {'form': form}
     return render(request, 'registration/register.html', context)
