@@ -1,3 +1,9 @@
+"""
+3-9. Dinner Guests: Working with one of the programs from Exercises 3-4
+through 3-7 (pages 41-42), use len() to print a message indicating the number
+of people you're inviting to dinner.
+"""
+
 guests = ['Steve Jobs', 'APJ Abdul Kalam', 'Archimedes']
 print(f'Dear {guests[0]}, I cordially invite you to a dinner.')
 print(f'Dear {guests[1]}, I cordially invite you to a dinner.')
