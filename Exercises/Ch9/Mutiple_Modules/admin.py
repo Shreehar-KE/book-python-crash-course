@@ -1,7 +1,6 @@
 """A class that can be used to represent an Admin"""
 
 from user import User
-from privileges import Privileges
 
 
 class Admin(User):
@@ -17,3 +16,14 @@ class Admin(User):
         """displys the list of privileges that the Admin have"""
         print("The Admin's privileges are: ")
         self.privileges.show_privileges()
+
+
+class Privileges:
+    """Object oriented representation of list of privileges"""
+
+    def __init__(self, privileges):
+        self.privileges = privileges
+
+    def show_privileges(self):
+        for privilege in self.privileges:
+            print(f'  - {privilege}')
