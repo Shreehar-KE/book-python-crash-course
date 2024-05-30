@@ -1,3 +1,12 @@
+"""
+8-10. Sending Messages: Start with a copy of your program from Exercise 8-9.
+Write a function called send_messages() that prints each text message and
+moves each message to a new list called sent_messages as it's printed. After
+calling the function, print both of your lists to make sure the messages were
+moved correctly.
+"""
+
+
 def show_messages(messages_list):
     """prints the messages in the list"""
     for message in messages_list:
@@ -10,7 +19,6 @@ def send_messages(messages_list, sent_messages):
         message = messages_list.pop(0)
         sent_messages.append(message)
         print(f'Sending---> {message}')
-        print(sent_messages)
 
     print('\nFinished sending messages...')
 

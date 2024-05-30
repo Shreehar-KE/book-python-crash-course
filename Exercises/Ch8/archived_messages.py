@@ -1,3 +1,10 @@
+"""
+8-11. Archived Messages: Start with your work from Exercise 8-10. Call the func-
+tion send_messages() with a copy of the list of messages. After calling the func-
+tion, print both of your lists to show that the original list has retained its messages.
+"""
+
+
 def show_messages(messages_list):
     """prints the messages in the list"""
     for message in messages_list:
@@ -10,7 +17,6 @@ def send_messages(messages_list, sent_messages):
         message = messages_list.pop(0)
         sent_messages.append(message)
         print(f'Sending---> {message}')
-        print(sent_messages)
 
     print('\nFinished sending messages...')
 
