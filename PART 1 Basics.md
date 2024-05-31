@@ -387,6 +387,7 @@
 #### Testing a Function
 * Unit test
 * Test case
+* Full Coverage
 * Naming a test file: start with `test_`
 * Naming a test function: `test_descriptive_function_name`
 * Assertion - `assert`
