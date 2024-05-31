@@ -1,3 +1,13 @@
+"""
+10-13. User Dictionary: The remember_me.py example only stores one piece of
+information, the username. Expand this example by asking for two more pieces
+of information about the user, then store all the information you collect in a
+dictionary. Write this dictionary to a file using json.dumps(), and read it back
+in using json.loads(). Print a summary showing exactly what your program
+remembers about the user.
+"""
+
+
 from pathlib import Path
 import json
 
@@ -34,7 +44,7 @@ def greet_user():
     if user:
         print(f"Welcome back, {user['name']}!")
         print(
-            f"You are {user['age']} years old and you lives in {user['location']}")
+            f"You are {user['age']} years old and you live in {user['location']}")
     else:
         user = get_new_username(path)
         print(f"We'll remember you when you come back, {user['name']}!")

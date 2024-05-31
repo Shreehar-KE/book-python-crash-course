@@ -1,3 +1,9 @@
+"""
+10-9. Silent Cats and Dogs: Modify your except block in Exercise 10-7 to fail
+silently if either file is missing.
+"""
+
+
 from pathlib import Path
 
 cats_file_path = Path('cats.txt')
