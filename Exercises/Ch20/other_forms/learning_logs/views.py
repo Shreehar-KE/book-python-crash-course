@@ -12,7 +12,7 @@ def index(request):
 
 @login_required
 def topics(request):
-    """Page to list all topics"""
+    """Show all topics."""
     topics = Topic.objects.filter(owner=request.user).order_by('date_added')
     context = {'topics': topics}
     return render(request, 'learning_logs/topics.html', context)
@@ -20,9 +20,11 @@ def topics(request):
 
 @login_required
 def topic(request, topic_id):
-    """Display all the entries in a particular topic"""
+    """Show a single topic and all its entries."""
     topic = Topic.objects.get(id=topic_id)
-    check_topic_owner(request.user, topic.owner)
+
+    check_topic_owner(topic.owner, request.user)
+
     entries = topic.entry_set.order_by('-date_added')
     context = {'topic': topic, 'entries': entries}
     return render(request, 'learning_logs/topic.html', context)
@@ -30,7 +32,7 @@ def topic(request, topic_id):
 
 @login_required
 def new_topic(request):
-    """adds a new topic"""
+    """Add a new topic."""
     if request.method != 'POST':
         form = TopicForm()
     else:
@@ -47,9 +49,11 @@ def new_topic(request):
 
 @login_required
 def new_entry(request, topic_id):
-    """adds a new entry"""
+    """Add a new entry for a particular topic."""
     topic = Topic.objects.get(id=topic_id)
-    check_topic_owner(request.user, topic.owner)  # Ex_19-4
+
+    check_topic_owner(topic.owner, request.user)  # Ex_19-4
+
     if request.method != 'POST':
         form = EntryForm()
     else:
@@ -66,23 +70,23 @@ def new_entry(request, topic_id):
 
 @login_required
 def edit_entry(request, entry_id):
-    """edit an existing entry"""
     entry = Entry.objects.get(id=entry_id)
     topic = entry.topic
-    check_topic_owner(request.user, topic.owner)
+
+    check_topic_owner(topic.owner, request.user)
+
     if request.method != 'POST':
         form = EntryForm(instance=entry)
     else:
         form = EntryForm(instance=entry, data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect('learning_logs/topic', topic_id=topic.id)
+            return redirect('learning_logs:topic', topic_id=topic.id)
 
     context = {'entry': entry, 'topic': topic, 'form': form}
     return render(request, 'learning_logs/edit_entry.html', context)
 
 
-def check_topic_owner(user, owner):  # Ex_19-3
-    """checks whether the topic matches the currently logged-in user"""
+def check_topic_owner(owner, user):  # Ex_19-3
     if owner != user:
         raise Http404

@@ -11,7 +11,7 @@ def index(request):
 
 
 def topics(request):
-    """Page to list all topics"""
+    """Show all topics."""
     topics = Topic.objects.order_by('date_added')
 
     public_topics = []
@@ -38,10 +38,12 @@ def topics(request):
 
 
 def topic(request, topic_id):
-    """Display all the entries in a particular topic"""
+    """Show a single topic and all its entries."""
     topic = Topic.objects.get(id=topic_id)
+
     if topic.visibility == False:
-        check_topic_owner(request.user, topic.owner)
+        check_topic_owner(topic.owner, request.user)
+
     entries = topic.entry_set.order_by('-date_added')
     context = {'topic': topic, 'entries': entries}
     return render(request, 'learning_logs/topic.html', context)
@@ -49,7 +51,7 @@ def topic(request, topic_id):
 
 @login_required
 def new_topic(request):
-    """adds a new topic"""
+    """Add a new topic."""
     if request.method != 'POST':
         form = TopicForm()
     else:
@@ -66,9 +68,11 @@ def new_topic(request):
 
 @login_required
 def new_entry(request, topic_id):
-    """adds a new entry"""
+    """Add a new entry for a particular topic."""
     topic = Topic.objects.get(id=topic_id)
-    check_topic_owner(request.user, topic.owner)  # Ex_19-4
+
+    check_topic_owner(topic.owner, request.user)  # Ex_19-4
+
     if request.method != 'POST':
         form = EntryForm()
     else:
@@ -85,10 +89,11 @@ def new_entry(request, topic_id):
 
 @login_required
 def edit_entry(request, entry_id):
-    """edit an existing entry"""
     entry = Entry.objects.get(id=entry_id)
     topic = entry.topic
-    check_topic_owner(request.user, topic.owner)
+
+    check_topic_owner(topic.owner, request.user)
+
     if request.method != 'POST':
         form = EntryForm(instance=entry)
     else:
@@ -118,7 +123,6 @@ def edit_topic(request, topic_id):
     return render(request, 'learning_logs/edit_topic.html', context)
 
 
-def check_topic_owner(user, owner):  # Ex_19-3
-    """checks whether the topic matches the currently logged-in user"""
+def check_topic_owner(owner, user):  # Ex_19-3
     if owner != user:
         raise Http404

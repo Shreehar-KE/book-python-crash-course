@@ -1,4 +1,4 @@
-This folder contains the code without the deployment configurations, for the deployment-ready code visit this [repo](https://github.com/Shreehar-KE/deploy-pcc-blog).
+This folder contains the code without the deployment configurations, for the deployment-ready code visit this [repo](https://github.com/Shreehar-KE/deploy-pcc-learning-log).
 
 Since I got some errors from platorm.sh while creating an account, I used an alternate deployment service called [Render](https://www.render.com).
 

@@ -4,12 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 def register(request):
-    """Register a new user"""
-
-    # To prevent a logged in user from accessing the registration URL
-    if request.user.is_authenticated:
-        return redirect('learning_logs:index')
-
+    """Register a new user."""
     if request.method != 'POST':
         form = UserCreationForm()
     else:
