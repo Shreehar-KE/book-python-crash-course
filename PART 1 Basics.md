@@ -361,6 +361,7 @@
 * `try-except` block
 * `else` block
 * encoding argument
+* `split()` method
 * `pass` statement
 
 #### Storing Data
